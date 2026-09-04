@@ -5,3 +5,4 @@ RUN sed -i '/facenet-pytorch/d' /comfyui/custom_nodes/ComfyUI_PuLID_Flux_ll/requ
     pip install --no-cache-dir -r /comfyui/custom_nodes/ComfyUI_PuLID_Flux_ll/requirements.txt && \
     pip install --no-cache-dir --no-deps facenet-pytorch
 RUN echo "  pulid: models/pulid/" >> /comfyui/extra_model_paths.yaml
+RUN sed -i 's/    attn_mask: Tensor = None,/    attn_mask: Tensor = None,\n    **kwargs,/' /comfyui/custom_nodes/ComfyUI_PuLID_Flux_ll/PulidFluxHook.py
